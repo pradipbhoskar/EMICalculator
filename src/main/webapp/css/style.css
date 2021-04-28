@@ -1,0 +1,38 @@
+@charset "ISO-8859-1";
+
+body
+{
+	background-color:#004C70 !important;
+	color:rgb(128, 255, 255);
+	height:1000px;
+}
+
+.frmdiv
+{
+	background-color:#666666;
+	margin-top:20px;
+	margin-bottom:20px;
+
+}
+.loginfrm
+{
+	background-color:#434343;
+	padding:30px;
+}
+.registerfrm
+{
+	background-color:#434343;
+	padding:30px;
+}
+
+
+.emidiv
+{
+	background-color:orange;
+	color:black;
+	margin: 50px 20px 50px 20px;
+	padding: 50px 20px 50px 20px;
+}
+
+
+
