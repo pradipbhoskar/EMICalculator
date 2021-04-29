@@ -35,4 +35,17 @@ body
 }
 
 
+.outertable
+{
+	background-color:cyan; 
+	color:#000000;
+}
+
+.innertable
+{
+	background-color:#ffffff; 
+	color:#000000;
+}
+
+
 

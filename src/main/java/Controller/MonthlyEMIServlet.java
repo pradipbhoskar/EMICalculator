@@ -136,7 +136,7 @@ public class MonthlyEMIServlet extends HttpServlet {
 			
 			
 			
-			
+/*			
 			ay= sc.yearInterest(emi);
 			
 			out.println("<div class=\"container\">");
@@ -171,8 +171,8 @@ public class MonthlyEMIServlet extends HttpServlet {
 			
 			
 			
-			
-			
+		*/	
+		/*		
 			al= sc.monthlyInterest(emi);
 			
 				out.println("<div class=\"container\">");
@@ -205,8 +205,98 @@ public class MonthlyEMIServlet extends HttpServlet {
 				out.println("</table>");
 			out.println("</div>");
 		
+			*/
 			
+			ay= sc.yearInterest(emi);
 			
+			out.println("<div class=\"container\">");
+			out.println("           <table class=\"table outertable\" style=\"border-collapse:collapse;\">\r\n"
+					+ "				    <thead class=\"thead-dark\">\r\n"
+					+ "				        <tr>\r\n"
+					+ "				           <th scope='col'>Year</th>\r\n"
+					+ "				           <th scope='col'>Principle(A)</th>\r\n"
+					+ "				           <th scope='col'>Interest(B)</th>\r\n"
+					+ "				           <th scope='col'>EMI(A+B)</th>\r\n"
+					+ "				           <th scope='col'>Balance</th>\r\n"
+					+ "				           <th scope='col'>Loan Paid</th>\r\n"
+					+ "				           <th scope='col'>Paid(%)</th>\r\n"
+					+ "				        </tr>\r\n"
+					+ "				    </thead>\r\n"
+					+ "				    <tbody>\r\n"
+					+ "                 ");		
+									int m=0;//months
+									int index=0;
+									int count=0;
+									for (YearModel ym: ay)
+									{ 
+										index=0;
+										count=0;
+					
+					out.println("		    <tr colspan=\"6\" data-toggle=\"collapse\" data-target=\"#"+ym.getYear()+"\" class=\"accordion-toggle\">\r\n"
+					+ "				            <td>"+ym.getYear()+"</td>\r\n"
+					+ "				             <td>"+ym.getOyp()+"</td>\r\n"
+					+ "				              <td>"+ym.getOyi()+"</td>\r\n"
+					+ "				               <td>"+ym.getOyemi()+"</td>\r\n"
+					+ "				                <td>"+ym.getOybr()+"</td>\r\n"
+					+ "				                 <td>"+ym.getOylp()+"</td>\r\n"
+					+ "				                  <td>"+ym.getOylpper()+"</td>\r\n"
+					+ "				        </tr>\r\n"
+					+ "				        <tr class=\"p\">\r\n"
+					+ "				            <td colspan=\"12\" class=\"hiddenRow\">\r\n"
+					+ "					            <div class=\"accordian-body collapse\" style=\"margin:0px; padding:0px;\" id=\""+ym.getYear()+"\">\r\n"
+					+ "					            	 \r\n"
+					+ "                 ");	
+					
+					
+														al= sc.monthlyInterest(emi);
+					out.println("		            	 <table class=\"table innertable\" style=\"margin:0px; padding:0px; border-collapse:collapse; \">\r\n"
+					+ "									   \r\n"
+					+ "									    <tbody>\r\n"
+					+ "                 ");
+														for (MonthModel mm: al)
+														{ 
+															count++;
+															
+															if(count<=m)
+															{
+																continue;
+															}
+															index++;
+															
+					out.println("						    		<tr colspan=\"12\" >\r\n"
+					+ "									            <td>"+index+"</td>\r\n"     //+mm.getMonth()+
+					+ "									             <td>"+mm.getPa()+"</td>\r\n"
+					+ "									              <td>"+mm.getIp()+"</td>\r\n"
+					+ "									               <td>"+mm.getE()+"</td>\r\n"
+					+ "									                <td>"+mm.getBr()+"</td>\r\n"
+					+ "									                 <td>"+mm.getLp()+"</td>\r\n"
+					+ "									                  <td>"+mm.getLpper()+"</td>\r\n"
+					+ "									        </tr>\r\n"
+					+ "                 ");	
+					
+															m++;
+															if(m%12==0)
+															{
+																break;
+															}
+														}
+					
+					out.println("			            			</tbody>\r\n"
+					+ "				            		</table>\r\n"
+					+ "					            	 \r\n"
+					+ "					        	</div> \r\n"
+					+ "				        	</td> \r\n"
+					+ "				        </tr>\r\n"
+					+ "			\r\n"
+					+ "                 ");		
+					
+					}
+									
+					out.println("		</tbody>\r\n"
+					+ "				</table>\r\n"
+					+ "                 ");			
+			
+					out.println("</div>");
 			
 			
 		
